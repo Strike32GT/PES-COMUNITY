@@ -1,0 +1,182 @@
+/* Register PES Community - Exacto como el login */
+
+/* Fondo igual al login */
+body {
+    background-color: #0c0f1f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal - estructura igual al login */
+.register-box {
+    background-color: #0f1535;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    width: 100%;
+    max-width: 420px;
+    color: white;
+    text-align: center;
+}
+
+/* Override para la card de Jetstream */
+.bg-white {
+    background-color: #0f1535 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+/* Logo - sin fondo blanco */
+.logo,
+[x-authentication-card-logo] {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo img,
+[x-authentication-card-logo] img {
+    width: 140px;
+    height: auto;
+    background: transparent;
+}
+
+/* Labels exactos al login */
+label {
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+/* Inputs exactos al login */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: #1f2747 !important;
+    color: white !important;
+    border: 1px solid #374151 !important;
+    padding: 10px !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+    margin-bottom: 16px !important;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #9ca3af !important;
+}
+
+input:focus {
+    outline: none !important;
+    border-color: #ff7b00 !important;
+    box-shadow: 0 0 0 2px rgba(255, 123, 0, 0.4) !important;
+}
+
+/* Botón exacto al login */
+button {
+    background-color: #ff7b00 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
+    border: none !important;
+    cursor: pointer !important;
+    width: auto !important;
+    padding: 10px 24px !important;
+    font-weight: bold !important;
+    margin-top: 10px !important;
+}
+
+button:hover {
+    background-color: #e56f00 !important;
+}
+
+/* Enlaces exactos al login */
+a {
+    color: #ffb877 !important;
+    text-decoration: underline !important;
+    font-size: 0.9rem !important;
+}
+
+a:hover {
+    color: #ffe0c2 !important;
+}
+
+/* Checkbox para términos */
+input[type="checkbox"] {
+    width: auto !important;
+    margin-right: 8px !important;
+    margin-bottom: 0 !important;
+    accent-color: #ff7b00;
+}
+
+/* Container para checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.checkbox-container label {
+    margin: 0 !important;
+    font-size: 13px !important;
+    color: white !important;
+}
+
+.checkbox-container a {
+    color: #ffb877 !important;
+    font-size: 13px !important;
+}
+
+/* Errores de validación */
+.validation-errors {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    border-radius: 6px !important;
+    padding: 12px !important;
+    margin-bottom: 20px !important;
+    color: #fca5a5 !important;
+    font-size: 14px !important;
+    text-align: left;
+}
+
+/* Container de botones */
+.flex.items-center.justify-end {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 20px !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .register-box {
+        padding: 30px 20px;
+        margin: 20px;
+        max-width: none;
+    }
+    
+    .logo img,
+    [x-authentication-card-logo] img {
+        width: 120px;
+    }
+}
+
+/* Clases de utilidad de Jetstream */
+.mt-4 { margin-top: 20px !important; }
+.block { display: block !important; }
+.w-full { width: 100% !important; }
+.mb-4 { margin-bottom: 16px !important; }
+.ms-2 { margin-left: 8px !important; }
+.ms-4 { margin-left: 16px !important; }
