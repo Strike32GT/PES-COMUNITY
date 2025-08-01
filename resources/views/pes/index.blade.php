@@ -66,4 +66,5 @@
             </div>
         </div>
     </div>
+    <x-footer />
 </x-user-layout>
