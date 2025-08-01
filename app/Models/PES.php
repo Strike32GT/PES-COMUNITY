@@ -9,7 +9,7 @@ class PES extends Model
     protected $table="pes";
     protected $primaryKey="idpes";
     public $timestamps=false;
-    protected $fillable = ["nombre", "fecha_lanzamiento", "peso", "descripcion", "valoracion", "link_descarga"];
+    protected $fillable = ["nombre", "fecha_lanzamiento", "peso", "descripcion", "valoracion", "link_descarga","link_imagen"];
 
     public function soundtracks()
     {
