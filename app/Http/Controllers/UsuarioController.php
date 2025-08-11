@@ -17,6 +17,18 @@ class UsuarioController extends Controller
         return view('usuario.index',compact('usuarios'));
     }
 
+    public function indexAdmin(){
+        $usuarios=Usuario::paginate(10);
+        return view('usuario.list',compact('usuarios'));
+    }
+
+    /*Lo ideal es que se maneja la pestaña usuario y lo que el admin 
+    pueda ver del usuario de manera distinta, acá se colocó un indexadmin, 
+    porque es fase beta. Referencia de cómo se haría 
+    Http\Controllers\Admin\UsuarioController.php
+    Http\Controllers\Usuario\UsuarioController.php
+    */
+
     /**
      * Show the form for creating a new resource.
      */
@@ -44,9 +56,9 @@ class UsuarioController extends Controller
             'email'=>$request->email,
             'password'=>Hash::make($request->password),
             'rol'=>$request->rol,
-            'fecha_creacion'=>now(),
+            'fecha_Creacion'=>now(),
         ]);
-        return redirect()->route('usuarios.index')->with('success','Usuario registrado correctamente');
+        return redirect()->route('usuarios.list')->with('success','Usuario registrado correctamente');
     }
 
     /**
@@ -76,8 +88,8 @@ class UsuarioController extends Controller
             'nombre'=>'required|string|max:100',
             'apellido'=>'required|string|max:100',
             'email'=>'required|email|max:100|unique:usuario,email,'.$id.',idusuario',
-            'password'=>'required|string|min:8',
-            'rol'=>'required|string',
+            /*'password'=>'required|string|min:8',*/
+            
         ]);
 
         $usuario=Usuario::findOrFail($id);
@@ -86,10 +98,10 @@ class UsuarioController extends Controller
             'nombre' =>$request->nombre,
             'apellido' =>$request->apellido,
             'email' =>$request->email,
-            'password' =>Hash::make($request->password),
-            'rol' =>$request->rol,
+            /*'password' =>Hash::make($request->password),*/
+            
         ]);
-        return redirect()->route('usuarios.index')->with('success','Usuario actualizado correctamente');
+        return redirect()->route('usuarios.list')->with('success','Usuario actualizado correctamente');
     }
 
     /**
@@ -99,6 +111,6 @@ class UsuarioController extends Controller
     {
         $usuario=Usuario::findOrFail($id);
         $usuario->delete();
-        return redirect()->route('usuarios.index')->with('success','Usuario eliminado correctamente');
+        return redirect()->route('usuarios.list')->with('success','Usuario eliminado correctamente');
     }
 }

@@ -20,6 +20,10 @@ Route::get('/',function (){
     return redirect()->route('dashboard');
 });
 
+
+
+
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware('guest') 
         ->name('login');
@@ -39,6 +43,7 @@ Route::resource('valoraciones',ValoracionController::class);
 Route::get('/sagas/{id}/soundtracks', [PESController::class, 'verSoundtracks'])
     ->name('sagas.soundtracks');
 
+Route::get('/admin/usuarios',[UsuarioController::class,'indexAdmin'])->name('usuarios.list');    
 
 
 Route::middleware([
@@ -46,7 +51,5 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [PESController::class, 'mostrarJuegos'])->name('dashboard');
 });

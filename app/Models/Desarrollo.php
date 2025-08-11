@@ -9,5 +9,5 @@ class Desarrollo extends Model
     protected $table="desarrollo";
     protected $primaryKey="idDesarrollo";
     public $timestamps=false;
-    protected $fillable=["Historia","PES_idPES"];
+    protected $fillable=["titulo","historia","PES_idPES"];      
 }

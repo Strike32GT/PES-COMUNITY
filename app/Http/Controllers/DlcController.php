@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PES;
 use Illuminate\Http\Request;
 
-class PESController extends Controller
+class DlcController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $peslist=PES::with('soundtracks')
-        ->orderby('Fecha_Lanzamiento','desc')->get();
-        return view('pes.index', compact('peslist'));
+        //
     }
 
     /**
@@ -63,16 +60,5 @@ class PESController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function verSoundtracks($id)
-    {
-        $pes = PES::with('soundtracks')->findOrFail($id);
-        return view('pes.soundtrack', compact('pes'));
-    }
-
-    public function mostrarJuegos(){
-        $total_juegos= PES::count();
-        return view('dashboard', compact('total_juegos'));
     }
 }

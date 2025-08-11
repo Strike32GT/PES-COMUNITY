@@ -17,27 +17,32 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased text-gray-900">
         <x-banner />
+        
+        <div class="min-h-screen {{ isset($useSidebar) && $useSidebar ? 'flex' : 'bg-gray-100' }}">
+            {{-- Sidebar lateral izquierdo --}}
+            @if (isset($useSidebar) && $useSidebar)
+                @include('layouts.sidebar')
+            @endif    
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            <div class="flex-1 flex flex-col overflow-hidden">
+                {{-- Navbar Superior --}}
+                @livewire('navigation-menu')
+                @if (isset($header))
+                    <header class="bg-white text-gray-900 shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                @endif 
+                
+                <main class="flex-1 p-6 bg-gray-100">
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
-
+        
         @stack('modals')
 
         @livewireScripts

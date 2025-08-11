@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-[#0b1120] border-b border-gray-800 text-white">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,15 +6,22 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        <img src="{{ asset('images/Pes_Comunity.png') }}" alt="" class="h-20 w-auto">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('PES-COMUNITY') }}
-                    </x-nav-link>
+                    <a href="{{ route('dashboard') }}"
+                        class="bg-gradient-to-r from-indigo-500to-blue-600 hover:opacity-90 text-white text-sm font-semibold py-2 px-4 rounded-full shadow transition-all">
+                        AGREGAR UN JUEGO
+                    </a>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <a href="#" class="bg-gradient-to-r from-indigo-500to-blue-600 hover:opacity-90 text-white text-sm font-semibold py-2 px-4 rounded-full shadow transition-all" >
+                        VER SITIO
+                    </a>
                 </div>
             </div>
 
